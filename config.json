@@ -1,0 +1,12 @@
+{
+    "rules_dir": ".clinerules",
+    "target_projects": [
+        {
+            "path": "d:\\Documents\\BigMap",
+            "include_all": true,
+            "include_skills": [
+                
+            ]
+        }
+    ]
+}
