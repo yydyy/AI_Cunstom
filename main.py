@@ -1,7 +1,7 @@
 '''
 Author: yyd
 Date: 2026-04-06 14:42:46
-LastEditTime: 2026-04-06 15:35:00
+LastEditTime: 2026-04-08 10:04:59
 FilePath: \AI_Cunstom\main.py
 Description: 将 rule 目录下的 skill 文件拷贝到目标项目的 .clinerules/ 目录
 '''
@@ -26,8 +26,7 @@ def clear_target_dir(target_dir: Path, expected_name: str) -> bool:
         print(f"  - {f.name}")
     
     confirm = input("\n是否删除这些文件并继续? (y/n): ").strip().lower()
-    second_confirm = input(f"请输入目录名 '{target_dir.name}' 进行二次确认: ").strip()
-    if confirm == 'y' and second_confirm == target_dir.name:
+    if confirm == 'y':
         try:
             shutil.rmtree(target_dir)
             print(f"[清理] 已删除 {target_dir}")
