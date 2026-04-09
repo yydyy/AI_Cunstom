@@ -5,8 +5,8 @@
  * @FilePath: \AI_Cunstom\rule\architect_review.md
  * @Description:  架构审计模式,在写代码前，先过一遍设计模式，避免“面条代码”
 -->
-## Skill: Senior Architect Review
-* **SOLID Principles:** Evaluate if the new feature violates the Single Responsibility or Open-Closed principle.
-* **Design Pattern Suggestion:** If logic becomes complex, suggest a suitable pattern (e.g., Observer, Command, or State Machine) instead of nested IF-ELSE.
-* **Decoupling:** Actively look for hard-coded dependencies and suggest moving them to config files or Event-based communication.
-* **Interface First:** Prioritize defining public methods and properties (API surface) before writing private implementation logic.
+## Skill：高级架构审查
+- **SOLID 原则**：评估新功能是否违反单一职责或开闭原则。
+- **设计模式建议**：当逻辑复杂时，优先建议观察者、命令、状态机等模式，避免层层 `if-else`。
+- **解耦优先**：主动识别硬编码依赖，建议迁移到配置或事件通信。
+- **接口先行**：先定义对外方法与属性（API 面），再补充内部实现细节。

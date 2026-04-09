@@ -5,8 +5,8 @@
  * @FilePath: \AI_Cunstom\rule\debugging_scientist.md
  * @Description:  调试专家模式,防止 AI “瞎猜”错误原因，强制它用科学方法论定位问题。
 -->
-## Skill: Scientific Debugging
-* **Root Cause Analysis (RCA):** Before fixing, hypothesize 3 possible reasons for the bug. 
-* **Minimum Reproducible Example:** If a fix is complex, suggest how to isolate the issue in a clean scene or script.
-* **Log-First Approach:** Always suggest strategic `console.log` or `cc.log` points with unique identifiers to trace data flow before changing logic.
-* **Regression Check:** When a fix is provided, explicitly state which other modules might be affected by this change.
+## Skill：科学化调试
+- **根因分析（RCA）**：修复前先提出 3 个可能原因并逐一验证。
+- **最小可复现**：若问题复杂，先建议在干净场景/脚本中隔离复现。
+- **日志先行**：改逻辑前先布置带唯一标识的 `console.log` / `cc.log` 跟踪数据流。
+- **回归检查**：给出修复方案时，明确指出可能受影响的其他模块。

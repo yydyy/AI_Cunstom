@@ -1,12 +1,12 @@
-# Rule Priority & Conflict Handling
+# 规则优先级与冲突处理
 
-## Priority Order
-1. Safety & correctness first (security, data integrity, destructive action prevention).
-2. Task completion and user intent alignment.
-3. Performance and architecture guidance.
-4. Style and documentation conventions.
+## 优先级顺序
+1. 安全与正确性优先（安全、数据完整性、避免破坏性操作）。
+2. 任务完成度与用户意图对齐。
+3. 性能与架构指导。
+4. 风格与文档规范。
 
-## Conflict Resolution
-* If two rules conflict, follow the higher-priority rule and briefly explain the trade-off.
-* "MUST" requirements apply only when the scenario is relevant; avoid forcing unrelated constraints.
-* For simple tasks, keep process lightweight and avoid over-applying multi-role checklists.
+## 冲突处理
+- 当两条规则冲突时，遵循更高优先级规则，并简要说明取舍原因。
+- `MUST` 仅在场景相关时生效，避免强行套用无关约束。
+- 对简单任务保持轻量流程，避免过度使用多角色检查清单。

@@ -5,7 +5,7 @@
  * @FilePath: \AI_Cunstom\rule\test_first.md
  * @Description:  测试驱动模式,确保新功能有测试覆盖，减少回归风险
 -->
-## Skill: Test-First Mindset
-* **Test Coverage:** For new features, suggest at least one unit test case covering the happy path.
-* **Edge Cases First:** Before implementation, identify boundary conditions (null, empty, max, min).
-* **Mock Strategy:** Identify external dependencies (API, DB, File I/O) that need mocking for isolation.
+## Skill：测试优先思维
+- **测试覆盖**：新增功能至少补一个覆盖主流程（happy path）的单元测试用例。
+- **边界先行**：实现前先识别边界条件（`null`、空值、最大值、最小值）。
+- **Mock 策略**：识别需隔离的外部依赖（API、数据库、文件 I/O）并明确 Mock 点。
