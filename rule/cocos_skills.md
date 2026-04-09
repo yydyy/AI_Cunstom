@@ -1,3 +1,10 @@
+<!--
+ * @Author: yyd
+ * @Date: 2026-04-06 14:29:07
+ * @LastEditTime: 2026-04-09 19:44:25
+ * @FilePath: \AI_Cunstom\rule\cocos_skills.md
+ * @Description:  cocos通用skill
+-->
 # AI 核心推理与 Cocos 开发技能协议
 
 ## 1. 需求澄清（关键）
@@ -12,11 +19,13 @@
 
 ## 3. Cocos 引擎与游戏开发能力
 - **版本意识**：必须区分 CC 2.4.x（`cc.Node`/`cc.Vec2`）与 3.x（`node`/`Vec3`/`setPosition`）语法；优先 TypeScript 严格类型，避免 `any`。
+- **组件使用规范**：使用 Cocos 组件前先查阅对应版本 API 文档并确认参数与生命周期语义，禁止凭经验臆测调用。
 - **性能优先工程**：
   - **渲染**：优先考虑 GPU Instancing、静态合批、RenderTexture 管理。
   - **内存**：高频实例化场景使用对象池，并明确 `decRef/release` 释放策略。
 - **同步架构**：坚持逻辑层与表现层分离；帧同步/状态同步保证确定性逻辑（警惕浮点误差）。
 - **安全护栏**：异步回调（如 `resources.load`、`scheduleOnce` 后）执行前，优先检查 `this.node.isValid`。
+- **禁止扩展系统类型**：不要在引擎系统类型（如 `cc.Node`、`cc.Component` 等）上新增自定义字段，例如 `node.age = 10` 是错误的做法；仅在自定义类型组件上新增字段是允许的。
 
 ## 4. 交互与输出规范
 - **代码优先**：说明保持简洁，优先给可落地、可运行的代码。
