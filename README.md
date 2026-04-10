@@ -243,6 +243,7 @@ MyProject/
 | Bug调试 | `debugging_scientist` + `devils_advocate` + `error_handler` |
 | 性能优化 | `performance_auditor` + `architect_review` |
 | Cocos游戏开发 | `cocos_skills` + `performance_auditor` |
+| Cocos Framework 项目 | `cocos_framework_proto` + `cocos_skills` |
 | 代码审查 | `architect_review` + `devils_advocate` + `security_guard` |
 
 ## 📚 规则说明
@@ -258,6 +259,7 @@ MyProject/
 | `performance_auditor.md` | 性能审计 | 内存监控、DrawCall、泄漏检测 |
 | `security_guard.md` | 安全审计 | 输入验证、敏感数据保护 |
 | `test_first.md` | 测试驱动模式 | 测试覆盖、边界条件、Mock策略 |
+| `cocos_framework_proto.md` | Cocos Framework 类型扩展 | Vec/Sprite/Node 原型扩展、装饰器 |
 
 ## ⚙️ 配置选项详解
 

@@ -79,25 +79,34 @@ def validate_project_config(project: dict, index: int, format_name: str) -> tupl
 
 
 def get_skill_files(base_path: Path, skill_names: list, include_all: bool) -> list[Path]:
-    """获取要处理的 skill 文件列表"""
+    """获取要处理的 skill 文件列表（递归查找所有子目录）"""
     rule_dir = base_path / "rule"
     
     if not rule_dir.exists():
         return []
     
     if skill_names:
-        # 模式1: 指定的 skill 文件
+        # 模式1: 指定的 skill 文件（递归查找所有子目录）
         files = []
         for skill_name in skill_names:
+            # 先尝试直接路径
             skill_path = rule_dir / skill_name
             if skill_path.exists():
                 files.append(skill_path)
             else:
-                print(f"    [警告] 找不到 Skill 文件: {skill_name}")
+                # 递归查找子目录
+                found = False
+                for md_file in rule_dir.rglob("*.md"):
+                    if md_file.name == skill_name:
+                        files.append(md_file)
+                        found = True
+                        break
+                if not found:
+                    print(f"    [警告] 找不到 Skill 文件: {skill_name}")
         return files
     elif include_all:
-        # 模式2: 所有 md 文件
-        return list(rule_dir.glob("*.md"))
+        # 模式2: 递归查找所有 md 文件
+        return list(rule_dir.rglob("*.md"))
     
     return []
 
@@ -240,6 +249,19 @@ def deploy_single_file_format(skill_files: list[Path], target_file: Path, format
         print(f"    [失败] 无法写入文件 {target_file}: {e}")
 
 
+def check_duplicate_filenames(skill_files: list[Path]) -> dict[str, list[Path]]:
+    """检查是否有同名文件（用于检测跨目录文件名冲突）"""
+    name_map: dict[str, list[Path]] = {}
+    for skill_path in skill_files:
+        name = skill_path.name
+        if name not in name_map:
+            name_map[name] = []
+        name_map[name].append(skill_path)
+    
+    # 只返回有冲突的
+    return {name: paths for name, paths in name_map.items() if len(paths) > 1}
+
+
 def deploy_format(format_name: str, format_config: dict, skill_files: list[Path], project_path: Path) -> None:
     """根据格式配置部署 skill 文件"""
     output_dir = format_config.get("output_dir", "")
@@ -315,6 +337,15 @@ def process_format(format_name: str, format_config: dict, base_path: Path, globa
         if not skill_files:
             print(f"    [跳过] 没有可用的 skill 文件")
             continue
+        
+        # 检查文件名冲突
+        duplicates = check_duplicate_filenames(skill_files)
+        if duplicates:
+            print(f"    [警告] 发现同名文件，复制时将互相覆盖:")
+            for name, paths in duplicates.items():
+                print(f"      - {name}:")
+                for p in paths:
+                    print(f"        * {p}")
 
         # 部署到目标路径
         deploy_format(format_name, format_config, skill_files, project_path)
