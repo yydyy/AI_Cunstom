@@ -1,12 +1,47 @@
 {
-    "rules_dir": ".clinerules",
-    "target_projects": [
-        {
-            "path": "d:\\Documents\\BigMap",
-            "include_all": true,
-            "include_skills": [
-                
+    "formats": {
+        "cline": {
+            "enabled": false,
+            "output_dir": ".clinerules",
+            "projects": [
+                {
+                    "path": "d:\\Documents\\BigMap",
+                    "include_all": true,
+                    "include_skills": []
+                }
             ]
+        },
+        "kimi": {
+            "enabled": true,
+            "output_dir": ".kimi/skills",
+            "projects": [
+                {
+                    "path": "d:\\Documents\\BigMap",
+                    "include_all": true,
+                    "include_skills": []
+                }
+            ]
+        },
+        "cursor": {
+            "enabled": false,
+            "output_dir": ".cursor/rules",
+            "file_extension": ".mdc",
+            "projects": []
+        },
+        "cursor_single": {
+            "enabled": false,
+            "output_file": ".cursorrules",
+            "projects": []
+        },
+        "windsurf": {
+            "enabled": false,
+            "output_file": ".windsurfrules",
+            "projects": []
+        },
+        "claude": {
+            "enabled": false,
+            "output_file": "CLAUDE.md",
+            "projects": []
         }
-    ]
+    }
 }
